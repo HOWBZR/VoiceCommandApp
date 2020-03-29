@@ -39,11 +39,14 @@ recognition.onend = function endSpeechRecognition() {
 
     recognition.onresult = function (event) {
         const currentResultIndex = event.resultIndex
+        const textArea = document.querySelector("#textarea")
         const transcript = event.results[currentResultIndex][0].transcript;
-        searchFormInput.value = transcript;
+        searchFormInput.value  = transcript;
+        textArea.innerHTML = transcript;
 
 
-        if (transcript.toLocaleLowerCase().trim() === "stop recording") {
+
+        if (transcript.toLowerCase().trim() === "stop recording") {
             recognition.stop()
         }
         else if (!searchFormInput.value) {

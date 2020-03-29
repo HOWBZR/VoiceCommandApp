@@ -14,13 +14,24 @@
 
 <body>
 
-    <div class="container">
-        <form action="https://www.google.com/search" method="get" id="search-form" target="_blank">
-            <input type="text" name="q" placeholder="Search Google" autocomplete="off" autofocus>
-        </form>
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="row">
+            <div class="col-4 offset-4">
+                <form action="https://www.google.com/search" method="get" id="search-form" target="_blank">
+                    <input type="text" name="q" placeholder="Search Google" autocomplete="off" autofocus>
+                </form>
+            </div>
+        </div>
     </div>
     <div class="container">
-
+        <div class="mb-3">
+            <label for="validationTextarea">Transcription area</label>
+            <textarea class="form-control is-invalid" id="textarea" placeholder="Your message will appear here"
+                required></textarea>
+            <div class="invalid-feedback">
+                Press the microphone to begin.
+            </div>
+        </div>
     </div>
 
 </body>
