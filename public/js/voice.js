@@ -39,10 +39,12 @@ recognition.onend = function endSpeechRecognition() {
 
     recognition.onresult = function (event) {
         const currentResultIndex = event.resultIndex
+        console.log(event.resultIndex)
         const textArea = document.querySelector("#textarea")
         const transcript = event.results[currentResultIndex][0].transcript;
         searchFormInput.value  = transcript;
         textArea.innerHTML = transcript;
+        console.log(transcript)
 
 
 
@@ -54,6 +56,9 @@ recognition.onend = function endSpeechRecognition() {
         }
         else {
             if (transcript.toLowerCase().trim() === "go") {
+                const newResult = event.results[currentResultIndex - 1][0].transcript
+                console.log(newResult)
+                searchFormInput.value = newResult
                 searchForm.submit();
             }
             else if (transcript.toLowerCase().trim() === "reset input") {
