@@ -58,6 +58,7 @@ recognition.onend = function endSpeechRecognition() {
             }
             else if (transcript.toLowerCase().trim() === "reset input") {
                 searchFormInput.value = ""
+                textArea.innerHTML = ""
             }
             else {
                 searchFormInput.value = transcript;
