@@ -48,6 +48,7 @@ if (SpeechRecognition) {
         const save = document.querySelector("#save")
         const textResults = document.querySelector("#textresults")
         const results = document.querySelector("#results")
+        const keyword = document.querySelector("#keyword")
 
         const transcript = event.results[currentResultIndex][0].transcript;
         searchFormInput.value = transcript;
@@ -62,10 +63,14 @@ if (SpeechRecognition) {
         results.addEventListener("click", function () {
             const resultsText = textArea.innerHTML
             const grabText = resultsText.match(/David/g)
+            const keywordSearch = keyword.val
             // const grabTextValue = grabText.value
-            console.log(grabText[0])
+            // console.log(keyword.value)
+            console.log(grabText)
             if (grabText[0] === "David") {
-               const counter = grabText.length
+                const counter = grabText.length
+                // textResults.innerHTML = `You said ${keywordSearch} ${counter} times! Let's work on that a bit more shall we?`
+
                  textResults.innerHTML = `You said ${grabText[0]} ${counter} times! Let's work on that a bit more shall we?`
             }
         })
